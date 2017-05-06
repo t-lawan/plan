@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }} -  @yield('title') </title>
+    <title>Plan </title>
 
     <!-- Styles -->
     @include('layouts.partials.stylelinks')
@@ -20,7 +20,7 @@
     </script>
 </head>
 <body>
-    <div class='app'>
+    <div class='ontainer-fluid col-md-10 col-md-offset-1'>
       @if(Auth::guest())
         @include('layouts.nav.guest')
       @else

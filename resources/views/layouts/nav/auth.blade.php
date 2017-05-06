@@ -25,19 +25,7 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
-                        <li>
-                          <form class="navbar-form">
-                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="Search">
 
-                              <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit">
-                                  <i class="glyphicon glyphicon-search"></i>
-                                </button>
-                              </div>
-                            </div>
-                          </form>
-                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>

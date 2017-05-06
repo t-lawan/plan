@@ -8,6 +8,8 @@ use App\Stage;
 
 class DatabaseSeeder extends Seeder
 {
+
+    protected $toTruncate = array('users','projects','tasks');
     /**
      * Run the database seeds.
      *
@@ -15,13 +17,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-        factory(User::class, 1)->create();
-        factory(Project::class,1)->create(
-          [
-            'user_id' => 1
-          ]
-        );
+
+
+
+        foreach ($this->toTruncate as $table)
+        {
+          DB::table($table)->truncate();
+        }
+
+        $this->call(UsersTableSeeder::class);
+        $this->call(ProjectsTableSeeder::class);
+        $this->call(TasksTableSeeder::class);
+
+
         factory(Task::class, 5)->create(
           [
             'user_id' => 1,

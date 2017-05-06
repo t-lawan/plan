@@ -21,7 +21,7 @@ class Project extends Model
       return $this->belongsTo(User::class);
     }
 
-    public function make(Task $task)
+    public function makeTask(Task $task)
     {
 
         $this->tasks()->save($task);

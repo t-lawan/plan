@@ -46,7 +46,6 @@ class ProjectController extends Controller
         $project = new Project(request(['title','description']));
         auth()->user()->make($project);
 
-        session()->flash('message', 'Your project was successfully created');
 
         return back();
 

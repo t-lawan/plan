@@ -42,9 +42,10 @@ class TaskController extends Controller
         //
 
         $task = new Task(request(['title','body']));
-        Project::class->make($task);
+        $project = Project::find(request(['project_id']));
+        $project->makeTask($task);
 
-        session()->flash('message', 'Your project was successfully created');
+        session()->flash('message', 'Your task was successfully created');
 
         return back();
     }

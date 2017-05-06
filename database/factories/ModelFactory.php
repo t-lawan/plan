@@ -31,7 +31,8 @@ $factory->define(App\Project::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence($nbWords = 6, $variableNbWords = true),
         'description' => $faker->paragraph($nbSentences = 2, $variableNbSentences = true),
-        'completed' => $faker->numberBetween($min = 0, $max = 1),
+        'completed' => rand(1,2),
+        'user_id' => 1
     ];
 });
 
@@ -41,8 +42,10 @@ $factory->define(App\Task::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence($nbWords = 6, $variableNbWords = true),
         'body' => $faker->paragraph($nbSentences = 2, $variableNbSentences = true),
-        'rating_id' => $faker->numberBetween($min = 1, $max = 3),
+        'user_id' => 1,
+        'project_id' => rand(1,2),
+        'rating_id' => rand(1,3),
+        'stage_id' => rand(1,3),
 
-        'stage_id' => $faker->numberBetween($min = 1, $max = 3),
     ];
 });
