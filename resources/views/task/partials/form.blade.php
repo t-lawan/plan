@@ -2,7 +2,7 @@
   <div class="panel-body ">
     <h1 class="panel-title">
 
-        <form method="post" action="/project/{{$project}}/task/">
+        <form method="post" action="/project/{{$project->id}}/task/">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 

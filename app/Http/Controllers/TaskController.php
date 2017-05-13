@@ -37,12 +37,20 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreNewTask $request)
+    public function store(Project $project)
     {
         //
 
+        $this->validate(request(),[
+          'title' => 'required',
+          'body' => 'required']);
+
         $task = new Task(request(['title','body']));
-        $project = Project::find($request->project_id);
+        $task->user_id = auth()->id();
+        $task->project_id = $project->id;
+        $task->stage_id = 1;
+        $task->rating_id = 2;
+
 
         $project->makeTask($task);
 
