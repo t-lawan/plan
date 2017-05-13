@@ -1,6 +1,7 @@
 <?php
 use App\User;
 use App\Project;
+use App\Comment;
 use App\Task;
 use App\Stage;
 /*
@@ -47,5 +48,14 @@ $factory->define(App\Task::class, function (Faker\Generator $faker) {
         'rating_id' => rand(1,3),
         'stage_id' => rand(1,3),
 
+    ];
+});
+
+$factory->define(App\Comment::class, function (Faker\Generator $faker) {
+
+    return [
+        'body' => $faker->paragraph($nbSentences = 2, $variableNbSentences = true),
+        'user_id' => rand(1,2),
+        'task_id' => rand(1,10),
     ];
 });

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Project;
+use App\Comment;
 use App\Task;
 use App\Role;
 
@@ -43,6 +44,11 @@ class User extends Authenticatable
     public function role()
     {
       return $this->hasOne(Role::class);
+    }
+
+    public function comments()
+    {
+      return $this->hasMany(Comment::class);
     }
 
     public function make(Project $project)

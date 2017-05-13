@@ -23,8 +23,6 @@ class Project extends Model
 
     public function makeTask(Task $task)
     {
-
         $this->tasks()->save($task);
-
     }
 }

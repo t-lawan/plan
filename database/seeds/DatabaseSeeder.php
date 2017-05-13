@@ -9,7 +9,7 @@ use App\Stage;
 class DatabaseSeeder extends Seeder
 {
 
-    protected $toTruncate = array('users','projects','tasks');
+    protected $toTruncate = array('users','projects','tasks','comments');
     /**
      * Run the database seeds.
      *
@@ -28,14 +28,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(ProjectsTableSeeder::class);
         $this->call(TasksTableSeeder::class);
-
-
-        factory(Task::class, 5)->create(
-          [
-            'user_id' => 1,
-            'project_id' => 1
-          ]
-        );
+        $this->call(CommentsTableSeeder::class);
 
 
     }

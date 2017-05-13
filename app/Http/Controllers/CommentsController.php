@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Task;
-use App\Project;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreNewTask;
 
-class TaskController extends Controller
+class CommentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,6 @@ class TaskController extends Controller
     public function index()
     {
         //
-        $tasks = Task::all();
-        return view('task.index',compact('tasks'));
     }
 
     /**
@@ -37,39 +34,38 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreNewTask $request)
+    public function store(Task $task)
     {
         //
 
-        $task = new Task(request(['title','body']));
-        $project = Project::find($request->project_id);
+        $this->validate(request(),['body' => 'required']);
 
-        $project->makeTask($task);
+        $comment = new Comment(request(['body']));
 
+        $comment->user_id = auth()->id();
+        $comment->task_id = $task->id;
+        $task->makeComment($comment);
         return back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Task  $task
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Comment $comment)
     {
-        $task = Task::find($id);
-        $project = $task->project;
-
-        return view('task.show',compact('task','project'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Task  $task
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Task $task)
+    public function edit(Comment $comment)
     {
         //
     }
@@ -78,10 +74,10 @@ class TaskController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Task  $task
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Task $task)
+    public function update(Request $request, Comment $comment)
     {
         //
     }
@@ -89,14 +85,13 @@ class TaskController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Task  $task
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
-        Task::find($id)->delete();
+        Comment::find($id)->delete();
         return back();
-
     }
 }
