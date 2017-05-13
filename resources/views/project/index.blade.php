@@ -5,7 +5,7 @@
 
 @else
   @section('content')
-<div class="col-md-6 col-md-offset-3">
+<div class="col-md-7 ">
   <div>
     @component('layouts.partials.header.withoutlink')
     @slot('class')
@@ -29,10 +29,10 @@
 </div>
 
 
-<div class="col-md-3">
+<div class="col-md-5">
   @include('task.partials.pending')
   @foreach($tasks as $task)
-    @if( ($task->user_id === Auth::user()->id) && ($task->stage_id === 1) )
+    @if( ($task->user_id === Auth::user()->id) && ($task->stage_id < 3) )
       @include('task.partials.task')
     @endif
   @endforeach

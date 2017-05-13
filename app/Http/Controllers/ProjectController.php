@@ -15,11 +15,14 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $user)
+    public function index()
     {
         //
-        $projects = Project::all();
-        $tasks = Task::all();
+
+        $projects = Project::where('user_id', auth()->id())
+                  ->orderBy('created_at', 'desc')
+                  ->take(10)->get();
+        $tasks = Task::where('user_id', auth()->id())->get();
 
         return view('project.index',compact('projects','tasks'));
     }

@@ -1,9 +1,40 @@
 <div class="panel panel-default ">
-  <a href="/project/{{$project->id}}/task/{{$task->id}}">
+
 
       <div class="panel-heading">
-        <span> {{$task->title}}</span>
-        </a></span>
+        <div class="row">
+          <div class="col-sm-8">
+            <a href="/project/{{$project->id}}/task/{{$task->id}}">
+            <span> {{$task->title}}</span>
+            </a>
+          </div>
+
+          @if($task->user->id === auth()->id())
+
+
+            <div class="col-sm-1">
+
+                <!--- <i class="material-icons md-18 align-right ">
+                   edit
+                 </i>-->
+
+                 @include('task.partials.form.incrementstage')
+
+            </div>
+
+            <div class="col-sm-1">
+
+              @include('task.partials.form.delete')
+
+
+               </button>
+            </div>
+
+
+          @endif
+        </div>
+
+
       </div>
 
       <div class="panel-body">

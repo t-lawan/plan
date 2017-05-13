@@ -22,11 +22,12 @@ Route::delete('project/{id}', 'ProjectsController@destroy')->name('project_delet
 // Task Controller
 Route::get('project/{project}/task/{task}','TaskController@show')->name('task_show');
 Route::post('/project/{project}/task/','TaskController@store')->name('task_save');
-Route::delete('project/{id}', 'TasksController@destroy')->name('task_delete');
+Route::put('task/{task}', 'TaskController@incrementStage');
+Route::delete('task/{task}', 'TaskController@destroy')->name('task_delete');
 
 // Comment Controller
 Route::post('/task/{task}/comment','CommentsController@store')->name('comment_save');
-Route::delete('task/{id}', 'TasksController@destroy')->name('task_delete');
+Route::delete('comment/{comment}', 'CommentController@destroy')->name('comment_delete');
 
 Auth::routes();
 

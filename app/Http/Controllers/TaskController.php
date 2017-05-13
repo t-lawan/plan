@@ -107,4 +107,16 @@ class TaskController extends Controller
         return back();
 
     }
+
+    public function incrementStage(Task $task)
+    {
+
+
+      if($task->stage_id < 3)
+      {
+        $task->stage_id++;
+        $task->save();
+        return back();
+      }
+    }
 }
