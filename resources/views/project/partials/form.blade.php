@@ -18,7 +18,7 @@
 
             @include('layouts.partials.errors')
               <div class="form-group" v-show ='title'>
-                <button type="submit" class="btn btn-outline-secondary offset-sm-9 btn-block" id ='submitbutton' >Add Project</button>
+                <button type="submit" class="btn btn-outline-secondary offset-sm-9 btn-block" id ='submitbutton' >Create Project</button>
               </div>
 
 

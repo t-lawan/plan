@@ -6,17 +6,32 @@
 @else
   @section('content')
 <div class="col-md-7 ">
-  <div>
+
     @component('layouts.partials.header.withoutlink')
     @slot('class')
 
     @endslot
+      <div class="row">
+        <div class="col-sm-8">
+          <span>My Projects</span>
+        </div>
 
-      My Projects
+        <div class="col-sm-1 col-sm-offset-2">
+          <button class="btn btn-sm icon-button" data-toggle="collapse" data-target="#addProject">
+            <span class="glyphicon glyphicon-plus"></span>
+          </button>
+        </div>
+      </div>
+
+
     @endcomponent
-  </div>
+ 
 
-  <div>
+
+
+
+
+  <div id="addProject" class="collapse">
     @include('project.partials.form')
   </div>
   @foreach($projects as $project)
