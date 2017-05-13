@@ -118,5 +118,7 @@ class TaskController extends Controller
         $task->save();
         return back();
       }
+
+      return back();
     }
 }
