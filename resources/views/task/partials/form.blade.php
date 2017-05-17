@@ -22,7 +22,7 @@
 
             @include('layouts.partials.errors')
               <div class="form-group">
-                <button type="submit" class="btn btn-outline-secondary offset-sm-9 btn-block" id ='submitbutton'>Add Task</button>
+                <button type="submit" class="btn btn-primary btn-block" id ='submitbutton'>Add Task</button>
               </div>
 
 

@@ -63,9 +63,9 @@ class TaskController extends Controller
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Task $task)
     {
-        $task = Task::find($id);
+
         $project = $task->project;
 
         return view('task.show',compact('task','project'));

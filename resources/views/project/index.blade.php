@@ -16,7 +16,7 @@
           <span>My Projects</span>
         </div>
 
-        <div class="col-xs-1 col-xs-offset-2">
+        <div class="col-xs-1 col-xs-offset-3">
           <button class="btn btn-sm icon-button" data-toggle="collapse" data-target="#addProject">
             <span class="glyphicon glyphicon-plus"></span>
           </button>

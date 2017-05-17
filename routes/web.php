@@ -20,7 +20,7 @@ Route::delete('project/{id}', 'ProjectsController@destroy')->name('project_delet
 
 
 // Task Controller
-Route::get('project/{project}/task/{task}','TaskController@show')->name('task_show');
+Route::get('task/{task}','TaskController@show')->name('task_show');
 Route::post('/project/{project}/task/','TaskController@store')->name('task_save');
 Route::put('task/{task}', 'TaskController@incrementStage');
 Route::delete('task/{task}', 'TaskController@destroy')->name('task_delete');

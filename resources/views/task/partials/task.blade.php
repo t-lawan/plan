@@ -3,8 +3,8 @@
 
       <div class="panel-heading">
         <div class="row">
-          <div class="col-xs-7">
-            <a href="/project/{{$project->id}}/task/{{$task->id}}">
+          <div class="col-xs-8">
+            <a href="/task/{{$task->id}}">
             <span> {{$task->title}}</span>
             </a>
           </div>
