@@ -22,7 +22,7 @@
 
             </div>
 
-            <div class="col-xs-1 col-xs-offset-1">
+            <div class="col-xs-1">
 
               @include('task.partials.form.delete')
 
