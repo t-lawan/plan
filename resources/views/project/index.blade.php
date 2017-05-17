@@ -12,11 +12,11 @@
 
     @endslot
       <div class="row">
-        <div class="col-sm-8">
+        <div class="col-xs-8">
           <span>My Projects</span>
         </div>
 
-        <div class="col-sm-1 col-sm-offset-2">
+        <div class="col-xs-1 col-xs-offset-2">
           <button class="btn btn-sm icon-button" data-toggle="collapse" data-target="#addProject">
             <span class="glyphicon glyphicon-plus"></span>
           </button>
@@ -25,7 +25,7 @@
 
 
     @endcomponent
- 
+
 
 
 

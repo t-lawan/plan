@@ -3,7 +3,7 @@
 
       <div class="panel-heading">
         <div class="row">
-          <div class="col-sm-7">
+          <div class="col-xs-7">
             <a href="/project/{{$project->id}}/task/{{$task->id}}">
             <span> {{$task->title}}</span>
             </a>
@@ -12,7 +12,7 @@
           @if($task->user->id === auth()->id())
 
 
-            <div class="col-sm-1 col-sm-offset-1">
+            <div class="col-xs-1 col-xs-offset-1">
 
                 <!--- <i class="material-icons md-18 align-right ">
                    edit
@@ -22,7 +22,7 @@
 
             </div>
 
-            <div class="col-sm-1 col-sm-offset-1">
+            <div class="col-xs-1 col-xs-offset-1">
 
               @include('task.partials.form.delete')
 
