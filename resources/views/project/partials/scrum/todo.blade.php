@@ -5,10 +5,21 @@
         panel-info
     @endslot
 
-  To Do
+<div class="row">
+  <div class="col-xs-8">
+    <span>To Do</span>
+  </div>
+
+  <div class="col-xs-1 col-xs-offset-2">
+    <button class="btn btn-sm icon-button" data-toggle="collapse" data-target="#addTask">
+      <span class="glyphicon glyphicon-plus"></span>
+    </button>
+  </div>
+</div>
+
   @endcomponent
 
-  <div>
+  <div id="addTask" class="collapse">
     @include('task.partials.form')
   </div>
 
